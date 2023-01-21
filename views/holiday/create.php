@@ -16,7 +16,9 @@
                 value="2018-07-22">
                 <label>to: </label>
                 <input type="date" id="request_end" name="request_end"
-                value="2018-07-22">
+                value="2018-07-22"></br></br>
+                <label>Reason: </label></br>
+                <textarea id="reason" name="reason"></textarea></br>
                 <input type="submit" id="btn" value="Submit" name = "submitRequest"/>
             </form>
         </div>

@@ -1,7 +1,8 @@
 <?php
+session_start();
+
 require_once '../app/Interfaces/Date/HolidayDateGenerator.php';
 require_once '../app/Interfaces/CollectionDecorator.php';
-// require_once '../app/Interfaces/Holiday/HolidayInterface.php';
 
 class HolidayController extends Controller {
 
@@ -22,24 +23,25 @@ class HolidayController extends Controller {
     }
 
     public function create() {
-        //Need to validate dates and compare them, even her or with JS
+        //Need to validate dates and compare them, even by creating a Validate Class or with JS
 
         if(isset($_GET['submitRequest'])) {
             $request_start = $_GET['request_start'];
             $request_end = $_GET['request_end'];
-
-            // $user = db::table('users')->get();
+            $reason = $_GET['reason'];
 
             $dateGenerator = new HolidayDateGenerator();
 
-            Holiday::create([
-                'user_id' => 1,
+            $holiday = Holiday::create([
+                'user_id' => $_SESSION['user']['id'],
                 'request_start' => $dateGenerator->generate($request_start),
                 'request_end' => $dateGenerator->generate($request_end),
+                'reason' => $reason,
             ]);
 
-            header('Location: http://localhost/holidays/public/holiday');
-            // return $this->view('holiday/index');
+            // $this->email->send($recipient, $request_start, $request_end, $reason);
+            header('Location: http://localhost/holidays/public/email/index?emailType=request');
+            // header('Location: http://localhost/holidays/public/holiday');
         }
 
         $this->view('holiday/create');

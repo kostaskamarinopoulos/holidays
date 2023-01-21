@@ -10,20 +10,20 @@
         ?>
         <div id="form">
             <h1>Edit User</h1>
-            <form name="form" action="/holidays/public/login/" method="POST">
+            <form name="form" action="/holidays/public/user/update" method="POST">
+                <input type="number" id="id" name="id" value="<?php echo $data['user']->id ?>" hidden>
                 <label>First name: </label>
-                <input type="email" id="email" name="email"></br></br>
+                <input type="text" id="firstname" name="firstname" value="<?php echo $data['user']->firstname ?> "></br></br>
                 <label>Last name: </label>
-                <input type="email" id="email" name="email"></br></br>
+                <input type="text" id="lastname" name="lastname" value="<?php echo $data['user']->lastname ?> "></br></br>
                 <label>Email: </label>
-                <input type="email" id="email" name="email"></br></br>
-                <label>Password: </label>
-                <input type="password" id="password" name="password"></br></br>
-                <label>Confirm Password: </label>
-                <input type="password" id="password" name="password"></br></br>
-                <select name="" value=""><option value="">Role</option>
-                <option value="admin">Admin</option><option value="employee">Employee</option></select>
-                <input type="submit" id="btn" value="Add" name = "submit"/>
+                <input type="email" id="email" name="email" value="<?php echo $data['user']->email ?> "></br></br>
+                <select name="type">
+                <option value="">Role</option>
+                <option value="6" <?php if ($data['user']->type === 6 ) { echo ' selected="selected"'; } ?>>Admin</option>
+                <option value="3" <?php if ($data['user']->type === 3 ) { echo ' selected="selected"'; } ?>>Employee</option>
+                </select>
+                <input type="submit" id="btn" value="Update" name = "submit"/>
             </form>
         </div>
     </body>

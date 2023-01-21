@@ -10,6 +10,9 @@
         ?>
         <div id="container">
             <h1>Holidays Requested</h1>
+            <a href="/holidays/public/holiday/create/">
+            <button>Add Request</button>
+        </a>
             <table>
                 <tr>
                     <th>Date submitted</th>

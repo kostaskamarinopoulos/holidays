@@ -20,14 +20,24 @@
                     <th>Last name</th>
                     <th>Email</th>
                     <th>Type</th>
+                    <th>Actions</th>
                 </tr>
                 <?php
                 foreach ($data['users'] as $user) :?>
+                
                     <tr class="item_row">
                         <td> <?php echo $user['firstname']; ?></td>
                         <td> <?php echo $user['lastname']; ?></td>
                         <td><?php echo $user['email']; ?></td>
                         <td><?php echo $user['type']; ?></td>
+                        <td>
+                            <a href="/holidays/public/user/edit/<?php echo $user['id']; ?>">
+                                <button>Edit</button>
+                            </a>
+                            <a href="/holidays/public/user/destroy/<?php echo $user['id']; ?>">
+                                <button>Delete</button>
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach;?>
                 
