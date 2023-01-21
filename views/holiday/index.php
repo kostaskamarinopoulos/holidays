@@ -12,18 +12,19 @@
             <h1>Holidays Requested</h1>
             <table>
                 <tr>
-                    <th>User email</th>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Reason</th>
+                    <th>Date submitted</th>
+                    <th>Dates requested</th>
+                    <th>Days requested</th>
+                    <th>status</th>
                 </tr>
                 <?php
                 foreach ($data['holidays'] as $holiday) :?>
                     <tr class="item_row">
-                        <td> <?php echo $holiday['user_id']; ?></td>
-                        <td> <?php echo $holiday['request_start']; ?></td>
-                        <td><?php echo $holiday['request_end']; ?></td>
-                        <td>Summer</td>
+                    
+                        <td> <?php echo $holiday['createdAt']; ?></td>
+                        <td><?php echo $holiday['dates']; ?></td>
+                        <td> <?php echo $holiday['days']; ?></td>
+                        <td> <?php echo $holiday['status']; ?></td>
                     </tr>
                 <?php endforeach;?>
                 

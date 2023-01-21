@@ -1,5 +1,7 @@
 <?php
 require_once '../app/Interfaces/Date/HolidayDateGenerator.php';
+require_once '../app/Interfaces/CollectionDecorator.php';
+// require_once '../app/Interfaces/Holiday/HolidayInterface.php';
 
 class HolidayController extends Controller {
 
@@ -12,9 +14,11 @@ class HolidayController extends Controller {
     public function index() {
         $holiday = $this->model($this->modelName);
         $holidays = Holiday::all();
-// $d = new DateTime();
-// var_dump($d);
-        $this->view('holiday/index', ['holidays' =>  $holidays]);
+
+        $collectionTransformer = new CollectionDecorator(new HolidayDecorator());
+        $data = $collectionTransformer->transform($holidays);
+
+        $this->view('holiday/index', ['holidays' =>  $data]);
     }
 
     public function create() {
@@ -26,7 +30,7 @@ class HolidayController extends Controller {
 
             // $user = db::table('users')->get();
 
-            $dateGenerator = new HolidayDateGenerator("Y-m-d");
+            $dateGenerator = new HolidayDateGenerator();
 
             Holiday::create([
                 'user_id' => 1,
@@ -34,7 +38,8 @@ class HolidayController extends Controller {
                 'request_end' => $dateGenerator->generate($request_end),
             ]);
 
-            return $this->view('holiday/index');
+            header('Location: http://localhost/holidays/public/holiday');
+            // return $this->view('holiday/index');
         }
 
         $this->view('holiday/create');

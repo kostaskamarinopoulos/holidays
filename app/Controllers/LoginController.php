@@ -18,8 +18,9 @@ class LoginController extends Controller {
 
                 $_SESSION['user'] = $user->getAttributes();
             }
-print_r($_SESSION);
-            return $this->view('holiday/index');
+// print_r($_SESSION);
+            header('Location: http://localhost/holidays/public/holiday');
+            // return $this->view('holiday/index');
         }
 
         $this->view('login/index');
