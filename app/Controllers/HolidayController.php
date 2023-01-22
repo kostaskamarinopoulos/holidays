@@ -13,7 +13,7 @@ class HolidayController extends Controller {
 
     public function index() {
         $holiday = $this->model($this->modelName);
-        $holidays = Holiday::all();
+        $holidays = Holiday::all()->sortByDesc("created_at");;
 
         $collectionTransformer = new CollectionDecorator(new HolidayDecorator());
         $data = $collectionTransformer->transform($holidays);
