@@ -18,8 +18,6 @@ class HolidayDateGenerator implements DateGeneratorInterface
      */
     public function generate(string $date): string
     {
-        // var_dump($date);
-        // var_dump(date($this->format, strtotime($date)));
         return date($this->format, strtotime($date));
     }
 }

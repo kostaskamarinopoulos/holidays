@@ -8,7 +8,6 @@ require_once 'Holiday/HolidayInterface.php';
 
 class CollectionDecorator implements TransformerInterface
 {
-
     /**
      * CollectionDecorator constructor.
      */

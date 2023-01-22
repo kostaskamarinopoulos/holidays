@@ -13,7 +13,6 @@
         </a>
         <div id="container">
             <h1>Users</h1>
-
             <table>
                 <tr>
                     <th>First name</th>
@@ -24,7 +23,6 @@
                 </tr>
                 <?php
                 foreach ($data['users'] as $user) :?>
-                
                     <tr class="item_row">
                         <td> <?php echo $user['firstname']; ?></td>
                         <td> <?php echo $user['lastname']; ?></td>

@@ -38,19 +38,9 @@ class HolidayController extends Controller {
                 'reason' => $reason,
             ]);
 
-            // $this->email->send($recipient, $request_start, $request_end, $reason);
             header('Location: http://localhost/holidays/public/email/index/request');
-            // header('Location: http://localhost/holidays/public/holiday');
         }
 
         $this->view('holiday/create');
-    }
-
-    public function edit() {
-        echo 'ddd33';
-    }
-
-    public function delete() {
-        echo 'ddd33';
     }
 }

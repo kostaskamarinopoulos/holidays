@@ -14,7 +14,7 @@ class Email implements CommunicationInterface
         $this->mail = new PHPMailer(true);
     }
 
-    public function send(User $recipient, string $request_start, string $request_end, $html): void
+    public function send(User $recipient, string $request_start, string $request_end, $template): void
     {
         try {            
             //Server settings
@@ -44,13 +44,4 @@ class Email implements CommunicationInterface
         
         header('Location: http://localhost/holidays/public/holiday');
     }
-
-    function template ($file, $vars=null) {
-        ob_start();
-        if ($vars!==null) { extract($vars); }
-        include $file;
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
-      }
 }

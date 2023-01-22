@@ -49,7 +49,6 @@ class UserController extends Controller {
     public function edit($id) {
         $user = User::find($id);
         $role = Capsule::select('select roles.role, roles.id from roles LEFT JOIN user_role ON roles.id=user_role.role_id WHERE user_role.user_id = ?', [$id]);
-        // var_dump($role);
         $user->type = $role[0]->id;
 
         $this->view('user/edit', ['user' => $user]);
@@ -64,7 +63,6 @@ class UserController extends Controller {
             $user->email = $_POST['email'];
 
             Capsule::update('UPDATE user_role SET role_id = ? WHERE user_id = ?', [(int) $_POST['type'], (int) $_POST['id']]);
-
             $user->save();
         }
         
