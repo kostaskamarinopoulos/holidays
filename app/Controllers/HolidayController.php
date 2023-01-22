@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require_once '../app/Interfaces/Date/HolidayDateGenerator.php';
 require_once '../app/Interfaces/CollectionDecorator.php';
@@ -40,7 +39,7 @@ class HolidayController extends Controller {
             ]);
 
             // $this->email->send($recipient, $request_start, $request_end, $reason);
-            header('Location: http://localhost/holidays/public/email/index?emailType=request');
+            header('Location: http://localhost/holidays/public/email/index/request');
             // header('Location: http://localhost/holidays/public/holiday');
         }
 

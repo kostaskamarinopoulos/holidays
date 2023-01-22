@@ -8,6 +8,13 @@ class UserController extends Controller {
         public string $modelName,
     ) {
         $this->modelName = $modelName;
+
+        //Ideally should create a middleware
+        if($_SESSION['user']['role'] != 'admin') {
+            
+            header('HTTP/1.0 403 Forbidden');
+            die('You are not allowed to access this file.');     
+        }
     }
 
     public function index() {

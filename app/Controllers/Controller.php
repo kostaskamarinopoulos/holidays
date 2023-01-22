@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class Controller 
 {
@@ -9,6 +10,10 @@ class Controller
     }
 
     public function view($view, $data = []) {
+        if($view != 'login/index' && !isset($_SESSION['user'])) {
+            $view = 'login/index';
+        }
+        
         require_once '../views/'.$view.'.php';
     }
 }
