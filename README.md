@@ -1,3 +1,5 @@
+
+
 ## Login
 
 - http://localhost/holidays/public/login
@@ -26,6 +28,9 @@ A 403 is thrown for the rest users.
 
 ## Dump of DB (MySQL):
 - epignosis.sql
+
+## ER diagram
+- ER_diagram.png
 
 ## Improvements: 
 - Validate data on each form (eg. dates).
