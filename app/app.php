@@ -10,6 +10,10 @@ class App {
 
     public function __construct() {
         $url = $this->parseUrl();
+        if(!isset($url)) {
+            $url[0] = $this->controller;
+        }
+
         $modelName = ucfirst($url[0]);
         $controllerType = ucfirst($url[0]).'Controller';
 
@@ -35,7 +39,7 @@ class App {
     }
 
     public function parseUrl() {
-        if($_GET['url']) {
+        if(isset($_GET['url'])) {
             return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
     }
