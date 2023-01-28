@@ -26,9 +26,6 @@ A 403 is thrown for the rest users.
 
 - http://localhost/holidays/public/login/logout
 
-## Dump of DB (MySQL):
-- epignosis.sql
-
 ## ER diagram
 - ER_diagram.png
 
